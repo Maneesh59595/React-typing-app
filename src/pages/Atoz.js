@@ -1,7 +1,7 @@
 import React from "react";
 import Timer from "../components/timer";
 import Typegame from "../components/Typegame";
-import {useEffect,useState,useRef} from 'react';
+import {useState} from 'react';
 
 
 function Atoz() {
