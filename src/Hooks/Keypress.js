@@ -11,7 +11,6 @@ const useKeyPress = (callback) => {
       if (keyPressed !== key && key.length === 1) {
         setKeyPressed(key);
         callback && callback(key);
-      
       }
     };
     //5

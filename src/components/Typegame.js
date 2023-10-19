@@ -11,30 +11,28 @@ function Typegame(props) {
   const [errors, seterrors] = useState(0);
   const [errorcolor, seterrorcolor] = useState(true);
   const completed = "completed";
- useEffect(()=>{
-  if (props.reset) {
-    props.handleReset();
-    setcurrent(text.charAt(0));
-    setOutgoingChars('')
-    setIncomingChars(text.substr(1))
-    setaccuracy(100);
-    seterrors(0);
-    props.setreset(false)
-  }
- },[props.reset])
+  useEffect(() => {
+    if (props.reset) {
+      props.handleReset();
+      setcurrent(text.charAt(0));
+      setOutgoingChars("");
+      setIncomingChars(text.substr(1));
+      setaccuracy(100);
+      seterrors(0);
+      props.setreset(false);
+    }
+  }, [props.reset]);
   useKeyPress((key) => {
     let updatedOutgoingChars = outgoingChars;
     let updatedIncomingChars = incomingChars;
     const updatedTypedChars = typedletters + key;
     settypedletters(updatedTypedChars);
-   
-   
 
     if (key === currentchar && incomingChars.length != 0) {
       props.setIsActive(true);
-    props.setIsPaused(false);
+      props.setIsPaused(false);
       seterrorcolor(true);
-      updatedOutgoingChars += currentchar;
+      // updatedOutgoingChars += currentchar;
       setaccuracy(
         (
           (updatedOutgoingChars.length * 100) /
@@ -47,7 +45,6 @@ function Typegame(props) {
 
       setIncomingChars(updatedIncomingChars);
     } else if (incomingChars < 1) {
-
       props.handlePauseResume();
       setcurrent(completed);
     } else {

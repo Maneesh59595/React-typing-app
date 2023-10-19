@@ -5,7 +5,11 @@ body {
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
 
-  background-color: greenyellow;
+  /* background-color: greenyellow; */
+  margin: 0; /* Remove default body margin */
+  padding: 0; /* Remove default body padding */
+  background-image: url("/home/maneesh/Downloads/typing.jpg"); /* Replace with the actual path to your image */
+  background-size: cover;
   zoom: 75%;
 }
 
@@ -30,7 +34,7 @@ body {
 .nav-list {
   display: flex;
   padding: 10px;
-  
+
   gap: 60px;
   justify-content: center;
   background-color: white;
@@ -42,6 +46,7 @@ body {
 }
 .text-btn {
   padding-top: 2px;
+  padding-bottom: 2px;
   font-size: 30px;
   border: none;
   width: 100px;
@@ -62,19 +67,43 @@ body {
 button:hover {
   background-color: lightgrey;
 }
+
+.text-container {
+  padding: 20px;
+  width: 80vw;
+  height: 80vh;
+  background-color: rgb(216, 215, 232);
+  border-radius: 25px;
+}
+.text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+.text-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
 .container-atoz {
   width: 80vw;
   max-width: 900px;
-  height: 70vh;
-  background-color: white;
-  border-radius: 20px;
+  height: 80vh;
+  /* padding-top: none; */
+  background-color: rgb(216, 215, 232);
+  border-radius: 25px;
   padding: 20px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+  /* box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
-    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset; */
 }
+html {
+  zoom: 67%;
+}
+
 .atoz {
-  width: 100vw;
+  /* width: 100vw; */
   height: 85vh;
   display: flex;
   justify-content: center;
@@ -119,17 +148,17 @@ h1 {
   justify-content: space-around;
   /* align-items: center; */
 }
-.time{
+.time {
   display: flex;
   flex-direction: column;
 }
 .time-text {
-  font-weight:bold;
+  font-weight: bold;
   font-size: 50px;
   letter-spacing: 1px;
   color: #02546c;
 }
-.time span{
+.time span {
   font-size: 35px;
   margin-left: 4px;
 }
@@ -188,24 +217,7 @@ h1 {
   font-weight: 500;
   color: #02546c;
 }
-.text {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 80vh;
-}
-.text-container {
-  padding: 20px;
-  width: 50vw;
-  height: 60vh;
-  background-color: white;
-  border-radius: 25px;
-}
-.text-header {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 10px;
-}
+
 .text-header-content {
   font-size: 35px;
 }

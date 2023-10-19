@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import { faker } from "@faker-js/faker";
 import useKeyPress from "../Hooks/Keypress";
 import clickaudio from "../Audio/click.mp3.mp3";
-import erroraudio from '../Audio/Oops.mp3'
-import hurrayaudio from '../Audio/hurray.mp3'
+import erroraudio from "../Audio/Oops.mp3";
+import hurrayaudio from "../Audio/hurray.mp3";
 
 const text = faker.random.words(13);
 const currentTime = () => new Date().getTime();
 
 function Text() {
-  const [start,setstart]=useState(true)
+  const [start, setstart] = useState(true);
   const [currentchar, setcurrent] = useState(text.charAt(0));
   const [outgoingChars, setOutgoingChars] = useState("");
   const [incomingChars, setIncomingChars] = useState(text.substr(1));
@@ -18,10 +18,10 @@ function Text() {
   const [startTime, setStartTime] = useState();
   const [wordCount, setWordCount] = useState(0);
   const [wpm, setWpm] = useState(0);
-  const [errors,seterror]=useState(false)
-  const click=new Audio(clickaudio);
-  const error=new Audio(erroraudio);
-  const end=new Audio(hurrayaudio)
+  const [errors, seterror] = useState(false);
+  const click = new Audio(clickaudio);
+  const error = new Audio(erroraudio);
+  const end = new Audio(hurrayaudio);
   useKeyPress((key) => {
     if (!startTime) {
       setStartTime(currentTime());
@@ -30,9 +30,9 @@ function Text() {
     let updatedIncomingChars = incomingChars;
     const updatedTypedChars = typedletters + key;
     settypedletters(updatedTypedChars);
-    if (key === currentchar && incomingChars.length!=0) {
-      click.play()
-      seterror(false)
+    if (key === currentchar && incomingChars.length != 0) {
+      click.play();
+      seterror(false);
       if (incomingChars.charAt(0) === " ") {
         setWordCount(wordCount + 1);
 
@@ -53,15 +53,14 @@ function Text() {
       updatedIncomingChars = incomingChars.substring(1);
 
       setIncomingChars(updatedIncomingChars);
-    // } 
-        }else if(incomingChars.length<1){
-          end.play()
-          // console.log('end')
-          setstart(false)
-        }
-        else{
-      seterror(true)
-      error.play()
+      // }
+    } else if (incomingChars.length < 1) {
+      end.play();
+      // console.log('end')
+      setstart(false);
+    } else {
+      seterror(true);
+      error.play();
     }
   });
 
@@ -85,13 +84,15 @@ function Text() {
           </div>
           <p className="text-words">
             <span className="outgoing">{outgoingChars}</span>
-            <span className={errors?'currentchar errorchar':"currentchar"}>{currentchar}</span>
+            <span className={errors ? "currentchar errorchar" : "currentchar"}>
+              {currentchar}
+            </span>
             <span>{incomingChars}</span>
           </p>
           <div className="footer">
             {start ? (
               <h1>Start Typing...</h1>
-              ) : (
+            ) : (
               <h1 className="color">Completed</h1>
             )}
           </div>
